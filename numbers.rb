@@ -30,6 +30,23 @@ puts "hello".to_f # will just be 0.0 (no error)
 
 puts "\n#{"-"*20}\n\n"
 
+# ------------------ METHODS: ------------------ #
+puts 10.odd?
+# puts 10.23.even? # error: CAN'T do even on a float
+# x = 10.23
+# puts x.even? # ERROR
+puts (103).even?
+puts 1 == 2
+puts 3 == 3
+puts 5 && 6 # returns 6 !?
+puts 5 || 6 # returns 5 !?
+puts 2 <= 5
+puts 2 > 5
+puts 40.to_s
+# ---------------------------------------------- #
+
+puts "\n#{"-"*20}\n\n"
+
 puts "Simple Calculator"
 puts "-"*5
 puts "Enter the first number"
@@ -37,6 +54,7 @@ num_1 = gets.chomp # RETURNS A STRING!
 puts "Enter the second number"
 num_2 = gets.chomp
 puts "The first number multiplied by the second number is #{num_1.to_f * num_2.to_f}"
+
 
 # ASSIGNMENT ( + - * / mod)
 puts "#{num_1} * #{num_2} = #{num_1.to_f * num_2.to_f}"
@@ -46,3 +64,5 @@ puts "-"*5
 puts "#{num_1} - #{num_2} = #{num_1.to_f - num_2.to_f}"
 puts "-"*5
 puts "#{num_1} / #{num_2} = #{num_1.to_f / num_2.to_f}"
+puts "-"*5
+puts "#{num_1} % #{num_2} = #{num_1.to_f % num_2.to_f}"
