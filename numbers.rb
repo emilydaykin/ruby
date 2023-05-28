@@ -1,3 +1,4 @@
+# ----------- Numbers ----------- #
 puts 1 + 2
 puts 10 * 3
 puts 100 / 4
@@ -38,6 +39,7 @@ num_2 = gets.chomp
 puts "The first number multiplied by the second number is #{num_1.to_f * num_2.to_f}"
 
 # ASSIGNMENT ( + - * / mod)
+puts "#{num_1} * #{num_2} = #{num_1.to_f * num_2.to_f}"
 puts "-"*5
 puts "#{num_1} + #{num_2} = #{num_1.to_f + num_2.to_f}"
 puts "-"*5
