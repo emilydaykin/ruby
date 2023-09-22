@@ -30,7 +30,7 @@ puts "\n------ 6️⃣  push an new element ------"
 a = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 puts "a: #{a}"
 puts "a.length: #{a.length}"
-a << 10 # push an element to the array TO THE END
+a << 10 # push an element to the array TO THE END (the shovel operator)
 puts "a: #{a}"
 puts a.last
 puts a.first
