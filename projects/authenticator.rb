@@ -33,18 +33,25 @@ while user_attempts < 3 && !correct_creds
   filtered_hash = users.select { |user| user[:username] === username && user[:password] === password }
 
   if filtered_hash.length === 1
-    correct_creds = true
     puts "✅ Correct creds!"
     puts filtered_hash
+    correct_creds = true
+
+    # # alternative:
+    # users.each do |user|
+    #   if user[:username] === username && user[:password] === password
+    #     puts user
+    #   end
+    # end
   else
     puts "❌ Incorrect creds!"
     if user_attempts < 3
       print "Press n to quit or any other key to continue: "
       user_choice = gets.chomp
   
-      if user_choice === "n"
+      if user_choice.downcase === "n"
         puts "Goodbye... 👋"
-        correct_creds = true  # end the application
+        break # end the application
       else
         puts "Okay try again..."
       end
