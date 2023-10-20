@@ -21,7 +21,11 @@ def get_city_names(somehash)
 end
 
 def get_area_code(somehash, key)
-  return somehash[key]
+  if somehash[key]
+    puts "🌆 #{key.capitalize()} has the code... #{somehash[key]} 🔢!"
+  else
+    puts "😢 Sorry, we don't have '#{key}' in our database yet, please choose another city or check for any typos."
+  end
 end
 
 inputs = 0
@@ -39,6 +43,6 @@ loop do
   print "✏️ Please choose a city: "
   user_city_input = gets.chomp
   inputs += 1
-  puts "🌆 #{user_city_input.capitalize()} has the code... #{get_area_code(dial_book, user_city_input)} 🔢!"
+  get_area_code(dial_book, user_city_input)
   puts "---"
 end
