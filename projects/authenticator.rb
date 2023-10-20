@@ -22,6 +22,13 @@ def user_inputs()
   return [username, password]
 end
 
+def end_program(with_error_message=false)
+  puts "You have exceeded the number of attempts 🚫🔒" if with_error_message
+  puts "Goodbye... 👋"
+  # break # (break won't work here since it's a function with no loop, but _would_ directly in code below)
+  exit
+end
+
 user_attempts = 0 
 while user_attempts < 3
   username, password = user_inputs()
@@ -32,35 +39,16 @@ while user_attempts < 3
     puts "✅ Correct creds!"
     user_attempts = 0
     puts filtered_hash
-
-    # # alternative:
-    # users.each do |user|
-    #   if user[:username] === username && user[:password] === password
-    #     puts user
-    #   end
-    # end
-    print "Press n to quit or any other key to continue: "
-
   else
     user_attempts += 1 # correct attempts don't count as one!!
     puts "❌ Incorrect creds!"      
-
-    if user_attempts >= 3
-      puts "You have exceeded the number of attempts 🚫🔒"
-      puts "Goodbye... 👋"
-      break
-    else
-      print "Press n to quit or any other key to continue: "
-    end
+    end_program(with_error_message=true) if user_attempts >= 3
   end
-
+  
+  print "Press n to quit or any other key to continue: "
   user_choice = gets.chomp
 
-  if user_choice.downcase === "n"
-    puts "Goodbye... 👋"
-    break # end the application
-  else
-    puts "Okay. Try again..."
-  end
+  end_program() if user_choice.downcase === "n"
+  puts "Okay. Enter another set of creds:"
 
 end
