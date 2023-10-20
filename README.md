@@ -14,3 +14,4 @@ Notes, practice and examples on the Ruby programming language 🎉
   - Inheritance - is used where a class inherits the behavior of another class, referred to as the superclass
   - Polymorphism - is when a class inherits the behaviors of another class, but has the ability to not inherit everything and change some of it’s inherited behaviors. For example to write a method that does something differently from the inherited method
   - Classes - It is a blueprint that describes the state and behavior that the objects of the class all share. A class can be used to create many objects. Objects created at runtime from a class are called instances of that particular class.
+* Installing gems ("packages"): `gem install bcrypt`
