@@ -1,8 +1,11 @@
 # Object Oriented Programming
 #  - getters & setters
 #  - initialize method
+require_relative 'crud'
 
 class Student
+  include Crud
+
   attr_accessor :first_name, :last_name, :email, :username, :password  # still needed even with `initialize` method! For getter & setter functionality
 
   # set up
@@ -26,15 +29,22 @@ john = Student.new("John", "Doe", "john@test.com", "j1234", "pw2")
 puts emily
 puts john
 
-puts "💜"
-# puts john.username
-puts john.last_name
-puts "💜"
-# puts emily.username
-puts emily.last_name
-puts "💜"
-emily.last_name = john.last_name
-puts "Emily: #{emily}"
-puts "--"
-puts "John: #{john}"
+# puts "💜"
+# # puts john.username
+# puts john.last_name
+# puts "💜"
+# # puts emily.username
+# puts emily.last_name
+# puts "💜"
+# emily.last_name = john.last_name
+# puts "Emily: #{emily}"
+# puts "--"
+# puts "John: #{john}"
 
+puts ('------------------------------------')
+
+hashed_password = emily.create_hash_digest(emily.password)
+
+puts hashed_password
+
+puts hashed_password == emily.password  # true 😍
