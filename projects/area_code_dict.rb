@@ -21,7 +21,7 @@ def get_city_names(somehash)
 end
 
 def get_area_code(somehash, key)
-  if somehash[key]
+  if somehash[key] # or `is somehash.include?(key)`
     puts "🌆 #{key.capitalize()} has the code... #{somehash[key]} 🔢!"
   else
     puts "😢 Sorry, we don't have '#{key}' in our database yet, please choose another city or check for any typos."
