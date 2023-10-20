@@ -1,4 +1,4 @@
-# Create an 'authenticator' that gets user input (username & password) and returns the user object if combination correct. if the combination is incorrect after 3 tries, the user is locked out.
+# Create an 'authenticator' that gets user input (username & password) and returns the user object if combination correct. if the combination is incorrect after 3 tries, the user is locked out. If credentials correct, don't exit the program; allow more input entries.
 
 users = [
   { username: "emily", password: "password1" },
@@ -22,20 +22,16 @@ def user_inputs()
   return [username, password]
 end
 
-user_attempts = 0
-correct_creds = false
-
-while user_attempts < 3 && !correct_creds
+user_attempts = 0 
+while user_attempts < 3
   username, password = user_inputs()
-
-  user_attempts += 1
 
   filtered_hash = users.select { |user| user[:username] === username && user[:password] === password }
 
   if filtered_hash.length === 1
     puts "✅ Correct creds!"
+    user_attempts = 0
     puts filtered_hash
-    correct_creds = true
 
     # # alternative:
     # users.each do |user|
@@ -43,21 +39,28 @@ while user_attempts < 3 && !correct_creds
     #     puts user
     #   end
     # end
+    print "Press n to quit or any other key to continue: "
+
   else
-    puts "❌ Incorrect creds!"
-    if user_attempts < 3
-      print "Press n to quit or any other key to continue: "
-      user_choice = gets.chomp
-  
-      if user_choice.downcase === "n"
-        puts "Goodbye... 👋"
-        break # end the application
-      else
-        puts "Okay try again..."
-      end
-    else
+    user_attempts += 1 # correct attempts don't count as one!!
+    puts "❌ Incorrect creds!"      
+
+    if user_attempts >= 3
       puts "You have exceeded the number of attempts 🚫🔒"
+      puts "Goodbye... 👋"
+      break
+    else
+      print "Press n to quit or any other key to continue: "
     end
+  end
+
+  user_choice = gets.chomp
+
+  if user_choice.downcase === "n"
+    puts "Goodbye... 👋"
+    break # end the application
+  else
+    puts "Okay. Try again..."
   end
 
 end
